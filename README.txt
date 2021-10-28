@@ -17,7 +17,7 @@ You can download the distribution from https://www.python.org/downloads/
 and double-click the installation
 
 after installation, you need to install the PyQt5 module
-to do this in the console enter 
+to do this in the console type:
 
 python -m pip install pyqt5
 
@@ -37,7 +37,7 @@ for example, in distributions based on Debian, it is installed like this:
 
 sudo apt-get install python3
 
-To install the module in the console, enter pip3 install pyqt5, 
+To install the module in the console, type: pip3 install pyqt5 
 the module will be automatically downloaded and installed.
 The program starts like this:
 
