@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # This Fifteen puzzle game
 # In automove mode you can use mouse to click and keyboard arrows. (see settings.py)
 # Author Roganov G.V. roganovg@mail.ru
@@ -309,7 +309,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.handmove.move(x,y)
 
 def main():
-    app = QtWidgets.QApplication(sys.argv)
+    app  = QtWidgets.QApplication(sys.argv)
     main = MainWindow(app)
     main.show()
     sys.exit(app.exec_())
