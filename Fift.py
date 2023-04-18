@@ -291,12 +291,16 @@ class MainWindow(QtWidgets.QMainWindow):
     def pieceMouseUP(self, piece, x, y):
         if self.lockGame: return
         if self.automovemode: return
+        #print('piece mouse up')
         if self.handmove != None and self.handmove.canmove:
+            #print('handmove != None and handMove.canmove')
             fstat = self.handmove.checkfinish()
+            #print('fstat',fstat)
             if fstat == -1: return
             else:
                 if fstat == 1:
                     self.handmove.setMatrix(self.piecelist)
+                    #print('checkCompleteGame')
                     self.checkComlpeteGame()
                 self.handmove = None
 
