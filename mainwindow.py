@@ -5,16 +5,17 @@
 ''' UI and menu create module '''
 from PyQt5 import QtCore, QtGui, QtWidgets
 from mygraphicsview import MyGraphicsView
+from lang import Lang
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
+        self.lang = Lang()
         #MainWindow.resize(512, 534)
         self.windowSize = 512
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setFixedSize(QtCore.QSize(self.windowSize, self.windowSize))
-        #self.centralwidget.setMinimumSize(QtCore.QSize(512, 512))
-        #self.centralwidget.setMaximumSize(QtCore.QSize(512, 512))
+
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -29,17 +30,15 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, self.windowSize, 22))
         self.menubar.setObjectName("menubar")
+        self.menubar.setStyleSheet('''QMenuBar { color: #fff; padding:2px;border-bottom:1px solid rgba(63, 64, 66,1.000); background:rgba(196, 113, 36, 1.000)} QMenuBar::item {background:transparent;padding:4px} QMenuBar::item:selected {padding:4px;border-radius:4px;background:rgba(255, 255, 255, 0.145)} QMenuBar::item:pressed {padding:4px;margin-bottom:0;padding-bottom:0}
+QMenu {background:rgba(196, 113, 36, 1.000);padding:8px 0; color: #fff; }QMenu::separator {margin:4px 0;height:1px;}QMenu::item {padding:4px 19px}QMenu::item:selected {background:rgba(255, 255, 255, 0.133); border-radius:6px;}QMenu::icon {padding-left:10px;width:14px;height:14px}''')
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
         self.mNew = QtWidgets.QMenu(self.menu)
         self.mNew.setObjectName("mNew")
-        #self.mInfo = QtWidgets.QMenu(self.menubar)
-        #self.mInfo.setObjectName("mInfo")
+
         MainWindow.setMenuBar(self.menubar)
-        #self.aSave = QtWidgets.QAction(MainWindow)
-        #self.aSave.setObjectName("aSave")
-        #self.aLoad = QtWidgets.QAction(MainWindow)
-        #self.aLoad.setObjectName("aLoad")
+
         self.aQuit = QtWidgets.QAction(MainWindow)
         self.aQuit.setObjectName("aQuit")
         self.aNew4 = QtWidgets.QAction(MainWindow)
@@ -58,30 +57,23 @@ class Ui_MainWindow(object):
         self.menu.addSeparator()
         self.menu.addAction(self.mNew.menuAction())
         self.menu.addSeparator()
-        #self.menu.addAction(self.aSave)
-        #self.menu.addAction(self.aLoad)
-        #self.menu.addSeparator()
         self.menu.addAction(self.aQuit)
         self.menubar.addAction(self.menu.menuAction())
-        #self.menubar.addAction(self.mInfo.menuAction())
 
-        self.retranslateUi(MainWindow)
+
+        self.aNew.setShortcut("N")
+        self.aNew4.setText("4x4")
+        self.aNew5.setText("5x5")
+        self.aNew6.setText("6x6")
+        self.aQuit.setShortcut("Q")
+
+        self.retranslateUi(MainWindow, self.lang)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("Fifteen puzzle game", "Игра Пятьнадцать"))
-        self.menu.setTitle(_translate("Game", "Игра"))
-        self.mNew.setTitle(_translate("New game", "Новая игра"))
-        #self.mInfo.setTitle(_translate("Info", "Инфо"))
-        #self.aSave.setText(_translate("Save game", "Сохранить игру"))
-        #self.aSave.setShortcut(_translate("S", "S"))
-        #self.aLoad.setText(_translate("Load game", "Загрузить игру"))
-        #self.aLoad.setShortcut(_translate("L", "L"))
-        self.aQuit.setText(_translate("Quit", "Выход"))
-        self.aQuit.setShortcut(_translate("Q", "Q"))
-        self.aNew.setText(_translate("Mix", "Размешать"))
-        self.aNew.setShortcut(_translate("N", "N"))
-        self.aNew4.setText(_translate("4x4", "4x4"))
-        self.aNew5.setText(_translate("5x5", "5x5"))
-        self.aNew6.setText(_translate("6x6", "6x6"))
+    def retranslateUi(self, MainWindow, lang):
+        MainWindow.setWindowTitle(lang.tr("title"))
+        self.menu.setTitle(lang.tr("game"))
+        self.mNew.setTitle(lang.tr("newgame"))
+        self.aQuit.setText(lang.tr("quit"))
+        self.aNew.setText(lang.tr("mix"))
+

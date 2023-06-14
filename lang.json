@@ -1,0 +1,7 @@
+{
+"title": {"default":"Fifteen puzzle game","ru":"Игра Пятьнадцать"},
+"game": {"default":"Game", "ru": "Игра"},
+"newgame": {"default":"New game", "ru": "Новая игра"},
+"quit": {"default":"Quit", "ru": "Выход"},
+"mix": {"default":"Mix", "ru": "Размешать"}
+}
