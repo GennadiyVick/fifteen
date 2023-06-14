@@ -1,5 +1,5 @@
 # Fifteen puzzle game.
-
+![screenshot](https://github.com/GennadiyVick/fifteen/blob/master/image.jpg)  
 To run the program, run the Fift.py file.
 
 Attention! The program is designed to run on Linux OS,
